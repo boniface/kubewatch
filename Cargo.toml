@@ -1,0 +1,30 @@
+[package]
+name = "kubewatch"
+version = "0.1.0"
+description = "File watcher that monitors Kubernetes manifest files and applies them to clusters"
+edition = "2024"
+
+[dependencies]
+notify = "8.1.0"
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"
+log = "0.4"
+pretty_env_logger = "0.5.0"
+tempfile = "3.20.0"
+
+[package.metadata.deb]
+maintainer = "Boniface Kabaso  <boniface@hashcode.zm>"
+copyright = "2025, Hashcode (Z) Ltd"
+license-file = ["LICENSE", "3"]
+extended-description = """File watcher that monitors Kubernetes manifest files and applies them to clusters."""
+section = "utils"
+priority = "optional"
+assets = [
+    ["target/release/kubewatch", "usr/bin/", "755"],
+    ["config.yaml", "etc/kubewatch/config.yaml", "644"],
+    ["debian/kubewatch.service", "lib/systemd/system/", "644"]
+]
+conf-files = ["/etc/kubewatch/config.yaml"]
+maintainer-scripts = "debian/"
+systemd-units = { enable = true }

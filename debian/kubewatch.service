@@ -1,0 +1,13 @@
+[Unit]
+Description=Kubernetes manifest file watcher and deployer
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/kubewatch
+Restart=on-failure
+User=root
+WorkingDirectory=/etc/kubewatch
+Environment=RUST_LOG=info
+
+[Install]
+WantedBy=multi-user.target

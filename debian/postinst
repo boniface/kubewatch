@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+# Create manifest directory
+mkdir -p /var/lib/kubewatch/manifests
+chown -R root:root /var/lib/kubewatch
+chmod 755 /var/lib/kubewatch
+chmod 755 /var/lib/kubewatch/manifests
+
+#DEBHELPER#
+
+exit 0

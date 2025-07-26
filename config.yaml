@@ -1,0 +1,10 @@
+
+watch_dir: "/var/folders/z6/w31_s5ms2y3frb1xzgnrmdr80000gn/T/.tmpYWhYHP"
+command: "echo"
+file_extensions:
+  - yaml
+  - yml
+file_prefixes:
+  - dev-
+  - prod-
+debounce_time: 100
