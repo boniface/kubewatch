@@ -24,10 +24,10 @@ You can install Hash Release directly from our APT repository:
 ```sh
 # Add our GPG key
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://boniface.github.io/kubewatch/apt-repo/public.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubewatch-archive-keyring.gpg
+curl -fsSL https://boniface.github.io/kubewatch/public.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubewatch-archive-keyring.gpg
 
 # Add repository to sources
-echo "deb [signed-by=/etc/apt/keyrings/kubewatch-archive-keyring.gpg] https://boniface.github.io/kubewatch/apt-repo stable main" | sudo tee /etc/apt/sources.list.d/kubewatch.list
+echo "deb [signed-by=/etc/apt/keyrings/kubewatch-archive-keyring.gpg] https://boniface.github.io/kubewatch stable main" | sudo tee /etc/apt/sources.list.d/kubewatch.list
 
 # Update package lists
 sudo apt-get update

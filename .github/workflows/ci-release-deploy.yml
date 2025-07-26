@@ -162,7 +162,8 @@ jobs:
       
           cp "$DEB" apt-repo/pool/main/h/kubewatch/
       
-          dpkg-scanpackages --arch amd64 apt-repo/pool > apt-repo/dists/stable/main/binary-amd64/Packages
+          cd apt-repo
+          dpkg-scanpackages --arch amd64 pool > dists/stable/main/binary-amd64/Packages
           gzip -kf apt-repo/dists/stable/main/binary-amd64/Packages
       
           cat > apt-repo/dists/stable/Release <<EOF
