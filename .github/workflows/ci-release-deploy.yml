@@ -156,16 +156,17 @@ jobs:
             echo "No .deb file found at $DEB, aborting."
             exit 1
           fi
-      
+          
           mkdir -p apt-repo/pool/main/h/kubewatch \
                    apt-repo/dists/stable/main/binary-amd64
-      
+          
           cp "$DEB" apt-repo/pool/main/h/kubewatch/
-      
-          dpkg-scanpackages --arch amd64 apt-repo/pool > apt-repo/dists/stable/main/binary-amd64/Packages
-          gzip -kf apt-repo/dists/stable/main/binary-amd64/Packages
-      
-          cat > apt-repo/dists/stable/Release <<EOF
+          
+          cd apt-repo
+          dpkg-scanpackages --arch amd64 pool > dists/stable/main/binary-amd64/Packages
+          gzip -kf dists/stable/main/binary-amd64/Packages
+          
+          cat > dists/stable/Release <<EOF
           Origin: Kubernetes Watcher
           Label: Kubernetes Watcher
           Suite: stable
@@ -176,21 +177,23 @@ jobs:
           Description: Kubernetes manifest watcher
           Date: $(date -Ru)
           EOF
-      
-          apt-ftparchive release apt-repo/dists/stable >> apt-repo/dists/stable/Release
-      
+          
+          apt-ftparchive release dists/stable >> dists/stable/Release
+          
           echo "${GPG_PASSPHRASE}" \
             | gpg --batch --passphrase-fd 0 --pinentry-mode loopback -abs \
-            -o apt-repo/dists/stable/Release.gpg \
-            apt-repo/dists/stable/Release
-      
+            -o dists/stable/Release.gpg \
+            dists/stable/Release
+          
           echo "${GPG_PASSPHRASE}" \
             | gpg --batch --passphrase-fd 0 --pinentry-mode loopback --clearsign \
-            -o apt-repo/dists/stable/InRelease \
-            apt-repo/dists/stable/Release
-      
+            -o dists/stable/InRelease \
+            dists/stable/Release
+          
+          cd ..
           tree -L 4 apt-repo
         shell: bash
+
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
