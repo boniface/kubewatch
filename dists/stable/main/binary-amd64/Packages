@@ -1,0 +1,18 @@
+Package: kubewatch
+Version: 0.0.3-1
+Architecture: amd64
+Maintainer: Boniface Kabaso  <boniface@hashcode.zm>
+Installed-Size: 985
+Depends: libc6 (>= 2.39)
+Filename: pool/main/h/kubewatch/kubewatch_0.0.3-1_amd64.deb
+Size: 354524
+MD5sum: 3a65558e670c607b99eebc2e790ab59a
+SHA1: 207b1b8376d6659dda1d748eca0974c429f03ce0
+SHA256: 2e3c885449846b8b5d3b8c0180b962641117d265623a851aef20279d5a32edda
+Section: utils
+Priority: optional
+Description: File watcher that monitors Kubernetes manifest files and applies them to
+ clusters
+ File watcher that monitors Kubernetes manifest files and applies them to
+ clusters.
+

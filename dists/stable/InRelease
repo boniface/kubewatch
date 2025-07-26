@@ -1,0 +1,45 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: Kubernetes Watcher
+Label: Kubernetes Watcher
+Suite: stable
+Codename: stable
+Version: 0.0.3
+Architectures: amd64
+Components: main
+Description: Kubernetes manifest watcher
+Date: Sat, 26 Jul 2025 22:04:23 +0000
+Date: Sat, 26 Jul 2025 22:04:23 +0000
+MD5Sum:
+ bdb9a7cc965b2a11bbe2f79e6f13f833              254 Release
+ 37fd834abe321659700657bc28974b3f              603 main/binary-amd64/Packages
+ 152937b787e086a5fe800e868d9d2f96              403 main/binary-amd64/Packages.gz
+SHA1:
+ dcaf34a03b16512bfd901211092b03d01ad0cb0a              254 Release
+ 886d43093c4f5619673c6456db3406ca59e7578d              603 main/binary-amd64/Packages
+ 2b31b34231b4988160b5270b13002e78a51fdaec              403 main/binary-amd64/Packages.gz
+SHA256:
+ ab42eb81627f8046bf71f844227ebe90e790074e82d3830dbfd1e9ca06c32704              254 Release
+ af4934ea06920b3a59a90edadbf08edb9bf233f35150b3183f79dad1622a7d4b              603 main/binary-amd64/Packages
+ 2d1a4d478f38428ffe280ae62d0374b674a026bf741fc2863f77ca13b2be7db5              403 main/binary-amd64/Packages.gz
+SHA512:
+ 63c722d7b2b20e938c74705711e47255291f415eb22472284bc3c9abe87bb90829512a0ba60ad45471a68404660b0315585c881e45a507e543d5297a096059a9              254 Release
+ 37b556e10098b55526b35d286dd5b62b848ab6e4f98da9290fb8e1938c60f78eda6792a222f5ec2d5abc2330ec6fb1604e55bcc86ba4978543f94b90eac725d0              603 main/binary-amd64/Packages
+ 2f930585456debd7677dfbf98a174ad8df87c4cf4fbe2fbadcedd598afe98accadfbca944e0abb0542f1946a2b42b9117460ee2374ca1df71514816f6196f563              403 main/binary-amd64/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEOCPQJBdyZfqoibb7Pj6gg4YAdU8FAmiFUOkACgkQPj6gg4YA
+dU+FEw//aVUvpPvYHC5DCrEDT5w1+s8foWFyhkj0wyY4dpKCX+2EarbGMC9V5SRY
+pDU7XNrgWnz8G7iLZOUvJX0dlhMYBuVepdPaUR/Fl0vkul9ORTxUVKOxo+qp0219
+vNg3gVluYL6R1tqajhUxhdrNkrR+8gKbpzn0Uzf7vswPigmSCE8rOPEDD+Wlve4/
+80C+uPV3HvGeqwT3mES2tlrjd2o4NXq/ImqjOoPTwkGP+3rBimg97ngeUvWEBky9
+HWbTyB3nDr3qGjipfYvH3ECV0/b7FIm7aVPhF9gXS7NPRgRDZYOO4L98OXV9Dec+
+gRjMEKcm0LdUBbdQAd2QwEdm+fnsDybDxNIi7ev3ydfFjXxWX0dY1MCzdcpv8I9M
+/fydpKqnbGOm4fPQ0IVTGma56K/Mtf6dxCDSNUHEDCGFHVdKLbYcOpZaZmcgwgeA
+P96IXcgg6d8kFq6ra4y9GVUuGiJkyk+PMX9o0wZHeOq6zXC+iSk3IlQEtdVzK+sW
+LVapReeD5say2iSwZ5ibdPAlPWguUVBGTyQO8ZUfwr4h++GIX1Yy/jnlh/gwd7PP
+7T7cgQ9gPRUkCAFWUULGdHRfwWimtufuZQ23kjTwFX7ZZkuYqGn2rHsEt9cnOdmN
+icT8NcmqgCWBC7dHKG4hTdwwIul9I6dRXNKmZEiabWuhS3LvjTU=
+=8TcE
+-----END PGP SIGNATURE-----
