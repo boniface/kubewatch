@@ -164,9 +164,9 @@ jobs:
       
           cd apt-repo
           dpkg-scanpackages --arch amd64 pool > dists/stable/main/binary-amd64/Packages
-          gzip -kf apt-repo/dists/stable/main/binary-amd64/Packages
+          gzip -kf dists/stable/main/binary-amd64/Packages
       
-          cat > apt-repo/dists/stable/Release <<EOF
+          cat > dists/stable/Release <<EOF
           Origin: Kubernetes Watcher
           Label: Kubernetes Watcher
           Suite: stable
@@ -178,19 +178,19 @@ jobs:
           Date: $(date -Ru)
           EOF
       
-          apt-ftparchive release apt-repo/dists/stable >> apt-repo/dists/stable/Release
+          apt-ftparchive release dists/stable >> dists/stable/Release
       
           echo "${GPG_PASSPHRASE}" \
             | gpg --batch --passphrase-fd 0 --pinentry-mode loopback -abs \
-            -o apt-repo/dists/stable/Release.gpg \
-            apt-repo/dists/stable/Release
+            -o dists/stable/Release.gpg \
+            dists/stable/Release
       
           echo "${GPG_PASSPHRASE}" \
             | gpg --batch --passphrase-fd 0 --pinentry-mode loopback --clearsign \
-            -o apt-repo/dists/stable/InRelease \
-            apt-repo/dists/stable/Release
+            -o dists/stable/InRelease \
+            dists/stable/Release
       
-          tree -L 4 apt-repo
+          tree -L 4
         shell: bash
 
       - name: Deploy to GitHub Pages
