@@ -196,7 +196,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: apt-repo
-          target-folder: apt-repo
+          target-folder: /
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           clean: true
