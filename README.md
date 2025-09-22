@@ -1,25 +1,29 @@
-# **kubewatch**  
+# Kubewatch
 
-**Automatically apply Kubernetes manifest changes with a file watcher**  
+[![CI](https://github.com/boniface/kubewatch/actions/workflows/tests.yml/badge.svg)](https://github.com/boniface/kubewatch/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-`kubewatch` is a lightweight Linux daemon that monitors a directory for changes to Kubernetes manifests (`*.yaml`/`*.yml`) and automatically applies them to your cluster using `kubectl apply`. Perfect for development, GitOps workflows, or syncing local changes to a cluster without manual intervention.  
+**Automatically apply Kubernetes manifest changes with a file watcher**
 
----
-
-## **Features**  
-- 🕵️ **Real-time file watching** – Detects changes in specified directories.  
-- ⚡ **Auto-apply** – Runs `kubectl apply -f` on modified manifests.  
-- 🔧 **Configurable paths** – Set your watched directory via config file.  
-- 🖥️ **Systemd service** – Runs as a background daemon (`systemctl` support).  
-- 🔒 **Kubernetes RBAC-aware** – Uses local `kubeconfig` for authentication.  
+`kubewatch` is a lightweight Linux daemon that monitors a directory for changes to Kubernetes manifests (`*.yaml`/`*.yml`) and automatically applies them to your cluster using `kubectl apply`. Perfect for development, GitOps workflows, or syncing local changes to a cluster without manual intervention.
 
 ---
 
-## **Installation**  
+## Features
 
-### **Debian/Ubuntu (via APT )**
+- 🕵️ **Real-time file watching** – Detects changes in specified directories.
+- ⚡ **Auto-apply** – Runs `kubectl apply -f` on modified manifests.
+- 🔧 **Configurable paths** – Set your watched directory via config file.
+- 🖥️ **Systemd service** – Runs as a background daemon (`systemctl` support).
+- 🔒 **Kubernetes RBAC-aware** – Uses local `kubeconfig` for authentication.
 
-You can install Hash Release directly from our APT repository:
+---
+
+## Installation
+
+### Debian/Ubuntu (via APT)
+
+You can install Kubewatch directly from the APT repository:
 
 ```sh
 # Add our GPG key
@@ -36,11 +40,13 @@ sudo apt-get update
 sudo apt-get install kubewatch
 ```
 
-### **Debian/Ubuntu (via .deb package)**  
+### Debian/Ubuntu (via .deb package)
+
 ```sh
-# Download and install the package  
-wget https://example.com/kubewatch.deb  
-sudo apt install ./kubewatch.deb  
+# Download and install the package
+wget https://example.com/kubewatch.deb
+sudo apt install ./kubewatch.deb
+```
 
 ### Start and Enable the Service
 
@@ -51,75 +57,58 @@ sudo systemctl start kubewatch
 sudo systemctl enable kubewatch
 ```
 
+### Manual Install (Any Linux)
 
-### **Manual Install (Any Linux)**  
 ```sh
-# Clone the repo  
-git clone https://github.com/your-repo/kubewatch.git  
-cd kubewatch  
+# Clone the repo
+git clone https://github.com/boniface/kubewatch.git
+cd kubewatch
 
-# Install dependencies (if needed)  
-sudo apt install inotify-tools kubectl  
-
-# Install and start  
-sudo make install  
-sudo systemctl start kubewatch  
-```  
+# Build and install
+cargo build --release
+sudo cp target/release/kubewatch /usr/local/bin/
+```
 
 ---
 
-## **Configuration**  
-Edit `/etc/kubewatch/config.yaml`:  
+## Configuration
+
+Edit `/etc/kubewatch/config.yaml`:
+
 ```yaml
-watchDir: "/path/to/manifests"  # Directory to monitor  
-kubeconfig: "/home/user/.kube/config"  # Optional: Custom kubeconfig  
-logLevel: "info"                 # debug, info, warn, error  
-```  
+watchDir: "/path/to/manifests"  # Directory to monitor
+kubeconfig: "/home/user/.kube/config"  # Optional: Custom kubeconfig
+logLevel: "info"                 # debug, info, warn, error
+```
 
-Restart to apply changes:  
+Restart to apply changes:
+
 ```sh
-sudo systemctl restart kubewatch  
-```  
+sudo systemctl restart kubewatch
+```
 
 ---
 
-## **Usage**  
-1. Place Kubernetes manifests in the configured `watchDir`.  
-2. On file save, `kubewatch` detects changes and runs:  
-   ```sh
-   kubectl apply -f /path/to/changed/file.yaml  
-   ```  
-3. Check logs:  
-   ```sh
-   journalctl -u kubewatch -f  
-   ```  
+## Usage
+
+1.  Place Kubernetes manifests in the configured `watchDir`.
+2.  On file save, `kubewatch` detects changes and runs:
+    ```sh
+    kubectl apply -f /path/to/changed/file.yaml
+    ```
+3.  Check logs:
+    ```sh
+    journalctl -u kubewatch -f
+    ```
 
 ---
 
-## **FAQ**  
-### **Q: Does this work with `kustomize` or Helm?**  
-A: No—it only applies raw YAML files. For Helm/Kustomize, consider a CI/CD pipeline.  
+## Contributing
 
-### **Q: How is this different from Flux/ArgoCD?**  
-A: `kubewatch` is a **simple, local-file watcher**, not a full GitOps solution. Ideal for dev environments.  
-
-### **Q: Can I restrict which files are watched?**  
-A: Yes! Use `includePattern` in the config (e.g., `"*.yaml"`).  
+PRs welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
-## **Contributing**  
-PRs welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.  
+## License
 
----
-
-## **License**  
-MIT © Hashcode (Z) Limited
-
----
-
-### **Why Use `kubewatch`?**  
-- ✅ **No Git commits needed** – Great for rapid local testing.  
-- ✅ **Zero dependencies** – Just `kubectl` and `inotify`.  
-- ✅ **KISS (Keep It Simple)** – No complex operators or YAML templating.  
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
